@@ -1,0 +1,1 @@
+Get-ADUser -Filter {Enabled -eq $True} -Properties Name,SAMAccountName,LastLogonDate | Where-Object {$_.LastLogonDate -lt (Get-Date).AddDays(-30)} | Disable-ADAccount
